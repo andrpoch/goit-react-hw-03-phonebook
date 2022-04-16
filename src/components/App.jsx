@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid';
 import React, {Component} from "react";
+import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from "./ContactList/ContactList";
 import Filter from "./FilterSearch/FilterSearch";
@@ -15,21 +15,7 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-  };
-  componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    if (parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
-  };
-  componentDidUpdate(prevState) {
-    const { contacts } = this.state;
-
-    if (contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    }
-  };
+  }
   addContact = (name, number) => {
     const { contacts } = this.state;
     const newContact = {
@@ -84,5 +70,4 @@ class App extends Component {
   }
 }
 
->>>>>>> parent of 2b1b5f5 (Revert "add locale storage")
 export default App;
