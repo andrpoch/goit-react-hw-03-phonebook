@@ -15,21 +15,7 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-  };
-  componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    if (parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
-  };
-  componentDidUpdate(prevState) {
-    const { contacts } = this.state;
-
-    if (contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    }
-  };
+  }
   addContact = (name, number) => {
     const { contacts } = this.state;
     const newContact = {
